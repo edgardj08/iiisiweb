@@ -18,6 +18,7 @@ if ($usuario == false) {
         <body>
             <div id="contenedor">
                 <div id="top"> Instituto de Investigación de Informática y Sistemas de Información.</div> <!-- PARTE SUPERIOR-->
+                <?php include "menu.php" ?>
                 <div id="contenidos"> <!-- PARTE MEDIA CON EL CONTENIDO SEPARADO EN 3 COLUMNAS-->
                     <div class="izquierda"> 
                         <fieldset style="background-color: whitesmoke">
