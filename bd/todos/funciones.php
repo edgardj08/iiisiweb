@@ -20,7 +20,6 @@ function listarInvestigadores() {
     } else {
         //print_r($consulta->errorInfo());
     }
-    //return $consulta;
 }
 
 function listarProyectos() {
