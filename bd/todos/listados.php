@@ -1,6 +1,7 @@
 <?php
 
 include "bd/todos/funciones.php";
+
 $consulta = listarInvestigadores();
 echo "<table border = 1>";
 echo "<tr><th>ID</th><th>Apellido</th><th>Nombre</th><th>EMail</th></tr>";
