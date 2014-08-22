@@ -22,7 +22,15 @@ include "Login/login.php";
                         <?php include "formulario/form_login.php" ?><br>
                     </fieldset>
                 </div>
-                <div class="contenido">Zona contenidos</div>
+                <div class="contenido">Zona contenidos
+
+                    <?php
+                    include "bd/todos/funciones.php";
+                    listarInvestigadores();
+                    ?>
+
+                    <br>
+                </div>
                 <div class="derecha">Zona derecha     </div>
             </div>
             <div id="pie">Aquí va el pie de página</div> <!-- PARTE INFERIOR-->
