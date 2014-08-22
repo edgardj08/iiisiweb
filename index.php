@@ -27,6 +27,8 @@ include "Login/login.php";
                     <?php
                     include "bd/todos/funciones.php";
                     listarInvestigadores();
+                    "<br>";
+                    listarProyectos();
                     ?>
 
                     <br>
@@ -36,4 +38,5 @@ include "Login/login.php";
             <div id="pie">Aquí va el pie de página</div> <!-- PARTE INFERIOR-->
         </div>
     </body>
+    cualquier cosa
 </html>
