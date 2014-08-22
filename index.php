@@ -38,6 +38,6 @@ include "Login/login.php";
             <div id="pie">Aquí va el pie de página</div> <!-- PARTE INFERIOR-->
         </div>
     </body>
-    cualquier cosa
+    cualquier cosaipjnuigyvtuc
     asdadadasdasd
 </html>
