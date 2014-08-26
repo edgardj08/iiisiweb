@@ -40,5 +40,23 @@ function listarProyectos() {
     //return $consulta;
 }
 
+function listarProgramas() {
+    include "bd/conexion.php";
+    $sql = "select * from Programa order by Titulo";
+    $consulta = $cnn->prepare($sql);
+    $param = array(0);
+    if ($consulta->execute($param)) {
+        echo "<table border = 1>";
+        echo "<tr><th>ID</th><th>Titulo</th><th>Palabras Claves</th></tr>";
+        while ($registro = $consulta->fetch()) {
+            echo "<tr><td>$registro[idPrograma]</td><td>" . utf8_encode($registro[Titulo]) . "</td><td>" . utf8_encode($registro[PalabrasClave]) . "</td></tr><br>";
+        }
+        echo "</table>";
+    } else {
+        //print_r($consulta->errorInfo());
+    }
+    //return $consulta;
+}
+
 
 ?>

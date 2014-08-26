@@ -25,10 +25,8 @@ include "Login/login.php";
                 <div class="contenido">Zona contenidos
 
                     <?php
-                    include "bd/todos/funciones.php";
-                    listarInvestigadores();
-                    "<br>";
-                    listarProyectos();
+                  
+                    
                     ?>
 
                     <br>
@@ -38,6 +36,5 @@ include "Login/login.php";
             <div id="pie">Aquí va el pie de página</div> <!-- PARTE INFERIOR-->
         </div>
     </body>
-    cualquier cosaipjnuigyvtuc
-    asdadadasdasd
+   
 </html>
