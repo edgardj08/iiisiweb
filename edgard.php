@@ -25,7 +25,15 @@ include "Login/login.php";
                 <div class="contenido">aqui prueba edgard
 
                     <?php
-                  
+                    include "bd/todos/funciones.php";
+                    //listarInvestigadores();
+                    "<br>";
+                    //listarProgramas();
+                    "<br>";
+                    //listarProyectos();
+                    "<br>";
+                    include "formulario/form_busquedageneral.php";
+                    
                     
                     ?>
 
@@ -36,5 +44,5 @@ include "Login/login.php";
             <div id="pie">Aquí va el pie de página</div> <!-- PARTE INFERIOR-->
         </div>
     </body>
-   
+
 </html>
