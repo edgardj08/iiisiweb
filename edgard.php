@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
-//include "ConexionBD/conexion.php";
 include "Login/login.php";
 ?>
 
@@ -33,8 +32,11 @@ include "Login/login.php";
                     //listarProyectos();
                     "<br>";
                     include "formulario/form_busquedageneral.php";
-                    
-                    
+                    if (!isset($buscar)) {
+                        echo "Debe especificar una cadena a bucar";
+                        
+                    }
+                    buscarProyecto($buscar);
                     ?>
 
                     <br>

@@ -1,7 +1,7 @@
 <?php
 //conexion a la base de datos
 //para mostrar letras Ñ y vocales con acentos
-header("Content-Type: text/html;charset=utf-8");
+//header("Content-Type: text/html;charset=utf-8");
 $driver = "mysql";
 $host = "localhost";
 $user = "root";

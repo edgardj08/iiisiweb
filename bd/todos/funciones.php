@@ -58,5 +58,25 @@ function listarProgramas() {
     //return $consulta;
 }
 
+function buscarProyecto($buscar) {
+    include "bd/conexion.php";
 
+    if (!isset($buscar)) {
+        echo "Debe especificar una cadena a bucar";
+        return;
+    }
+    $sql = "select * from Proyecto where TituloProy LIKE '%$buscar%'"; // and Disciplina like %$buscar% and PalabrasClave like %$buscar%";
+    $consulta = $cnn->prepare($sql);
+    $param = array(0);
+    if ($consulta->execute($param)) {
+        echo "<table border = 1>";
+        echo "<tr><th>ID</th><th>Titulo</th><th>Palabras Claves</th></tr>";
+        while ($registro = $consulta->fetch()) {
+            echo "<tr><td>$registro[idProyecto]</td><td>" . utf8_encode($registro[TituloProy]) . "</td><td>" . utf8_encode($registro[PalabrasClave]) . "</td></tr><br>";
+        }
+        echo "</table>";
+    } else {
+        print_r($consulta->errorInfo());
+    }
+}
 ?>

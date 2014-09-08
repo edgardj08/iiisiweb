@@ -11,6 +11,7 @@ y muestra el formulario adecuado, ocultando los demas
                 document.getElementById('div_programa').style.display = 'none';
                 document.getElementById('div_publicacion').style.display = 'none';
                 document.getElementById('div_usuario').style.display = 'none';
+              
                 break;
             case "2":
                 document.getElementById('div_proyecto').style.display = 'none';
@@ -37,7 +38,3 @@ y muestra el formulario adecuado, ocultando los demas
         }
     }
 </script>
-<?php 
-    
-
-?>
