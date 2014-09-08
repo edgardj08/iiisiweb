@@ -34,8 +34,10 @@ y muestra el formulario adecuado, ocultando los demas
                 break;
             default:
                 break;
-
         }
     }
-
 </script>
+<?php 
+    
+
+?>

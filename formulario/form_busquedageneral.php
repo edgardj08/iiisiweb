@@ -6,7 +6,7 @@ la seleccion del usuario.
 
 <?php include "funciones_formulario.php" ?>
 <legend>Búsqueda</legend>
-<form name="frmBusqueda" action="" method="post">
+<form name="frmBusqueda" action="edgard.php" method="post">
     <p>
         <input type="radio" name="buscar" id="proyecto" value="1" onclick="formulario_busqueda();"/> Proyecto  
         <input type="radio" name="buscar" id="programa" value="2" onclick="formulario_busqueda();"/> Programa
@@ -21,6 +21,7 @@ la seleccion del usuario.
             <tr><td>Disciplina</td><td> <input type="text" name = "disciplina"/><br></td>  </tr>
             <tr><td>Palabras Clave</td><td> <input type="text" name = "clave"/><br></td>  </tr>
             <tr><td>Año</td><td> <input type="text" name = "año"/><br></td>  </tr>
+            <?php buscarProyecto($_POST[titulo], $_POST[disciplina], $_POST[clave],$_POST[año])?>
         </table>
 
     </div>
