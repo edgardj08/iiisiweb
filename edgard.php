@@ -21,7 +21,7 @@ include "Login/login.php";
                         <?php include "formulario/form_login.php" ?><br>
                     </fieldset>
                 </div>
-                <div class="contenido">aqui prueba edgard
+                <div class="contenido">
 
                     <?php
                     include "bd/todos/funciones.php";
@@ -29,14 +29,10 @@ include "Login/login.php";
                     "<br>";
                     //listarProgramas();
                     "<br>";
-                    //listarProyectos();
+                    listarProyectos();
                     "<br>";
                     include "formulario/form_busquedageneral.php";
-                    if (!isset($buscar)) {
-                        echo "Debe especificar una cadena a bucar";
-                        
-                    }
-                    buscarProyecto($buscar);
+                   
                     ?>
 
                     <br>

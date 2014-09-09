@@ -23,10 +23,7 @@ include "Login/login.php";
                     </fieldset>
                 </div>
                 <div class="contenido">Zona contenidos
-
                     <?php
-                  
-                    
                     ?>
 
                     <br>
@@ -36,5 +33,5 @@ include "Login/login.php";
             <div id="pie">Aquí va el pie de página</div> <!-- PARTE INFERIOR-->
         </div>
     </body>
-   
+
 </html>
