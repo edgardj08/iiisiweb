@@ -1,5 +1,4 @@
 <?php
-
 function PosiblesDirectores() {
     include "bd/conexion.php";
     $sql = "select * from Usuario left join Perfil on "
@@ -19,3 +18,5 @@ function PosiblesDirectores() {
         //print_r($consulta->errorInfo());
     }
 }
+PosiblesDirectores();
+?>

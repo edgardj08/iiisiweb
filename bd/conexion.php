@@ -8,7 +8,5 @@ $user = "root";
 $pass = "6bLxfawt9VYMpCFV";
 $dbname = "iiisi";
 $cnn = new PDO("$driver:host=$host;dbname=$dbname", "$user", "$pass");
-if ($cnn) {
-    //echo "conectado<br>";
-}
+
 ?>

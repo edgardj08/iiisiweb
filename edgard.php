@@ -24,15 +24,9 @@ include "Login/login.php";
                 <div class="contenido">
 
                     <?php
-                    include "bd/todos/funciones.php";
-                    //listarInvestigadores();
                     "<br>";
-                    //listarProgramas();
-                    "<br>";
-                    listarProyectos();
-                    "<br>";
-                    include "formulario/form_busquedageneral.php";
-                   
+
+                    include "formulario/proyecto/altaProy.php";
                     ?>
 
                     <br>
