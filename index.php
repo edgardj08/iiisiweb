@@ -14,13 +14,20 @@ include "Login/login.php";
 
     <body>
         <div id="contenedor">
-            <div id="top"> Instituto de Investigación de Informática y Sistemas de Información.</div> <!-- PARTE SUPERIOR-->
+            <div id="top"> 
+                <div class="portada">
+                    Instituto de Investigación de Informática y Sistemas de Información.
+                </div>
+                <div class="top-login" >
+                    <fieldset style="background-color: whitesmoke" >
+                        <?php include "formulario/form_login.php" ?><br>
+                    </fieldset>
+                </div>
+            </div> <!-- PARTE SUPERIOR-->
             <?php include "menu.php" ?>
             <div id="contenidos"> <!-- PARTE MEDIA CON EL CONTENIDO SEPARADO EN 3 COLUMNAS-->
                 <div class="izquierda"> 
-                    <fieldset style="background-color: whitesmoke">
-                        <?php include "formulario/form_login.php" ?><br>
-                    </fieldset>
+                    zona izquierda
                 </div>
                 <div class="contenido">Zona contenidos
                     <?php

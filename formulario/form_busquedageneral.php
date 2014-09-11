@@ -1,7 +1,5 @@
 <!-- 
 Muestra un RADIO BUTTON donde se elige que es lo que se desea buscar.
-Se habilitara un formulario con campos adecuados para completar, segun
-la seleccion del usuario.
 -->
 <legend>Búsqueda</legend>
 <form name="frmBusqueda" method="post" action="#">
