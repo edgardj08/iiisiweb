@@ -129,7 +129,7 @@ if ($_POST) {
                             echo "<tr><td>$registro[idUsuario]</td><td>"
                             . utf8_encode($registro[Apellido]) . "</td><td>"
                             . utf8_encode($registro[Nombre]) . "</td>";
-                            echo "<td><a href=altaProy.php?id=$registro[idUsuario] class=close id =close>Agregar</a></td></tr><br>";
+                            echo "<td><a href='bd/formulario/proyecto/altaProy.php?id=$registro[idUsuario]' class=close id =close>Agregar</a></td></tr><br>";
                         }
                         echo "</tbody></table>";
                         ?>
