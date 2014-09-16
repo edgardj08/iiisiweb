@@ -25,8 +25,8 @@ include "Login/login.php";
 
                     <?php
                     "<br>";
-
-                    include "formulario/proyecto/altaProy.php";
+                    //include "formulario/form_busquedageneral.php";
+                    include "./formulario/proyecto/altaProy.php";
                     ?>
 
                     <br>

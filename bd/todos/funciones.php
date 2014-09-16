@@ -3,6 +3,21 @@ Aqui se detallan todas las funciones que pueden ser utilizadas por todos los usu
 incluso los invitados (NO REGISTRADOS)
 Se priorizan funciones de listado y busqueda
 -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link type="text/css" href="css/data_tables/jquery.dataTables_themeroller.css" rel="stylesheet"/>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#tabla").dataTable();
+            });
+        </script>
+    </head>
+    <body>     
+    </body>
+</html>
 <?php
 
 function listarInvestigadores() {
@@ -11,7 +26,7 @@ function listarInvestigadores() {
     $consulta = $cnn->prepare($sql);
     $param = array(0);
     if ($consulta->execute($param)) {
-        echo "<table border = 1>";
+        echo "<table border = 1 id=tablas>";
         echo "<tr><th>ID</th><th>Apellido</th><th>Nombre</th><th>EMail</th></tr>";
         while ($registro = $consulta->fetch()) {
             echo "<tr><td>$registro[idUsuario]</td><td>" . utf8_encode($registro[Apellido]) . "</td><td>" . utf8_encode($registro[Nombre]) . "</td><td>" . utf8_encode($registro[EMail]) . "</td></tr><br>";
@@ -28,7 +43,7 @@ function listarProyectos() {
     $consulta = $cnn->prepare($sql);
     $param = array(0);
     if ($consulta->execute($param)) {
-        echo "<table border = 1>";
+        echo "<table border = 1 id=tabla>";
         echo "<tr><th>ID</th><th>Titulo</th><th>Palabras Claves</th></tr>";
         while ($registro = $consulta->fetch()) {
             echo "<tr><td>$registro[idProyecto]</td><td>" . utf8_encode($registro[TituloProy]) . "</td><td>" . utf8_encode($registro[PalabrasClave]) . "</td></tr><br>";
@@ -45,7 +60,7 @@ function listarProgramas() {
     $consulta = $cnn->prepare($sql);
     $param = array(0);
     if ($consulta->execute($param)) {
-        echo "<table border = 1>";
+        echo "<table border = 1 id=tabla>";
         echo "<tr><th>ID</th><th>Titulo</th><th>Palabras Claves</th></tr>";
         while ($registro = $consulta->fetch()) {
             echo "<tr><td>$registro[idPrograma]</td><td>" . utf8_encode($registro[Titulo]) . "</td><td>" . utf8_encode($registro[PalabrasClave]) . "</td></tr><br>";
@@ -68,12 +83,17 @@ function buscarProyecto($buscar) {
     $consulta = $cnn->prepare($sql);
     $param = array(0);
     if ($consulta->execute($param)) {
-        echo "<table border = 1>";
-        echo "<tr><th>ID</th><th>Titulo</th><th>Palabras Claves</th></tr>";
+        echo "<table border = 1 id=tabla>";
+        echo "<thead>
+        <tr><th>ID</th><th>Titulo</th><th>Palabras Claves</th></tr>
+        </thead>
+        <tbody>";
         while ($registro = $consulta->fetch()) {
-            echo "<tr><td>$registro[idProyecto]</td><td>" . utf8_encode($registro[TituloProy]) . "</td><td>" . utf8_encode($registro[PalabrasClave]) . "</td></tr><br>";
+            echo "<tr><td>$registro[idProyecto]</td><td>" 
+                    . utf8_encode($registro[TituloProy]) . "</td><td>" 
+                    . utf8_encode($registro[PalabrasClave]) . "</td></tr><br>";
         }
-        echo "</table>";
+        echo "</tbody></table>";
     } else {
         print_r($consulta->errorInfo());
     }
@@ -88,12 +108,18 @@ function buscarPrograma($buscar) {
     $consulta = $cnn->prepare($sql);
     $param = array(0);
     if ($consulta->execute($param)) {
-        echo "<table border = 1>";
-        echo "<tr><th>ID</th><th>Titulo</th><th>Disciplina</th><th>Descripcion</th></tr>";
+        echo "<table border = 1 id=tabla>";
+        echo "<thead>
+        <tr><th>ID</th><th>Titulo</th><th>Disciplina</th><th>Descripcion</th></tr>
+        </thead>
+        <tbody>";
         while ($registro = $consulta->fetch()) {
-            echo "<tr><td>$registro[idPrograma]</td><td>" . utf8_encode($registro[Titulo]) . "</td><td>" . utf8_encode($registro[Disciplina]) . "</td><td>" . utf8_encode($registro[Descripcion]) . "</td></tr><br>";
+            echo "<tr><td>$registro[idPrograma]</td><td>" 
+                    . utf8_encode($registro[Titulo]) . "</td><td>" 
+                    . utf8_encode($registro[Disciplina]) . "</td><td>" 
+                    . utf8_encode($registro[Descripcion]) . "</td></tr><br>";
         }
-        echo "</table>";
+        echo "</tbody></table>";
     } else {
         print_r($consulta->errorInfo());
     }
@@ -108,12 +134,18 @@ function buscarPublicacion($buscar) {
     $consulta = $cnn->prepare($sql);
     $param = array(0);
     if ($consulta->execute($param)) {
-        echo "<table border = 1>";
-        echo "<tr><th>ID</th><th>Titulo</th><th>Abstract</th><th>Link</th></tr>";
+        echo "<table border = 1 id=tabla>";
+        echo "<thead>
+            <tr><th>ID</th><th>Titulo</th><th>Abstract</th><th>Link</th></tr>
+            </thead>
+            <tbody>";
         while ($registro = $consulta->fetch()) {
-            echo "<tr><td>$registro[idProyecto]</td><td>" . utf8_encode($registro[Titulo]) . "</td><td>" . utf8_encode($registro[Abstarct]) . "</td><td>" . utf8_encode($registro[Enlace]) . "</td></tr><br>";
+            echo "<tr><td>$registro[idProyecto]</td><td>"
+            . utf8_encode($registro[Titulo]) . "</td><td>"
+            . utf8_encode($registro[Abstarct]) . "</td><td>"
+            . utf8_encode($registro[Enlace]) . "</td></tr><br>";
         }
-        echo "</table>";
+        echo "</tdoby></table>";
     } else {
         print_r($consulta->errorInfo());
     }
@@ -124,22 +156,30 @@ function buscarUsuario($buscar) {
     $sql = "select *  from Usuario "
             . "where Nombre LIKE '%$buscar%' or "
             . "Apellido LIKE '%$buscar%' or "
-            . "NombreUsuario LIKE '%$buscar%'";  
+            . "NombreUsuario LIKE '%$buscar%'";
     $consulta = $cnn->prepare($sql);
     $param = array(0);
     if ($consulta->execute($param)) {
-        echo "<table border = 1>";
-        echo "<tr><th>ID</th><th>Apellido</th><th>Nombre</th><th>Curriculum</th><th>E-Mail</th></tr>";
+
+        echo "<table border = 1 id=tabla>";
+        echo "<thead>
+                <tr><th>ID</th><th>Apellido</th><th>Nombre</th><th>Curriculum</th><th>E-Mail</th></tr>
+            </thead>
+            <tbody>";
         while ($registro = $consulta->fetch()) {
-            echo "<tr><td>$registro[idUsuario]</td><td>" . utf8_encode($registro[Apellido]) . "</td><td>" . utf8_encode($registro[Nombre]) . "</td><td>" . utf8_encode($registro[Curriculum]) . "</td><td>" . utf8_encode($registro[EMail]) . "</td></tr><br>";
+            echo "<tr><td>$registro[idUsuario]</td><td>"
+            . utf8_encode($registro[Apellido]) . "</td><td>"
+            . utf8_encode($registro[Nombre]) . "</td><td>"
+            . utf8_encode($registro[Curriculum]) . "</td><td>"
+            . utf8_encode($registro[EMail]) . "</td></tr><br>";
         }
-        echo "</table>";
+        echo "</body></table>";
     } else {
         print_r($consulta->errorInfo());
     }
 }
 
-function modificarDatosPersonales(){
+function modificarDatosPersonales() {
     
 }
 ?>
