@@ -17,7 +17,22 @@
                     $('.popup-overlay').fadeOut('slow');
                     return false;
                 });
+
+                var table = $('#tabla').DataTable();
+                //$('#tabla tbody').on('click', 'tr', function() {
+                //    $(this).toggleClass('selected');
+                //});
+
                 $('#add').click(function() {
+                    //var data = table.rowData();
+                    //alert("datos " + data);
+                    var table = $('#tabla').DataTable();
+
+                    var data = table
+                            .rows()
+                            .data();
+
+                    alert('The table has ' + data.toString()+ ' records');
                     $('#popup').fadeOut('slow');
                     $('.popup-overlay').fadeOut('slow');
                     return false;
@@ -72,33 +87,33 @@
                 right: 15px;
 
             </style>
-    </head>
-    <body>     
-    </body>
-</html>
-<?php
-include "bd/conexion.php";
-$sql = "select * from Usuario left join Perfil on "
-        . "Usuario.idUsuario = Perfil.Usuario_idUsuarios where "
-        . "Perfil.Categoria_idCategoria >= 3 order by Usuario.Apellido";
-$consulta = $cnn->prepare($sql);
-$param = array(0);
-if ($consulta->execute($param)) {
-    echo "<form method = post>";
-    echo "<table border = 1 id = tabla>";
-    echo "<thead>
+        </head>
+        <body>     
+        </body>
+    </html>
+    <?php
+    include "bd/conexion.php";
+    $sql = "select * from Usuario left join Perfil on "
+            . "Usuario.idUsuario = Perfil.Usuario_idUsuarios where "
+            . "Perfil.Categoria_idCategoria >= 3 order by Usuario.Apellido";
+    $consulta = $cnn->prepare($sql);
+    $param = array(0);
+    if ($consulta->execute($param)) {
+        echo "<form method = post>";
+        echo "<table border = 1 id = tabla>";
+        echo "<thead>
             <tr><th>ID</th><th>Apellido</th><th>Nombre</th><th>Opción</th></tr>
             </thead>
             <tbody>";
-    while ($registro = $consulta->fetch()) {
-        echo "<tr><td>$registro[idUsuario]</td><td>"
-        . utf8_encode($registro[Apellido]) . "</td><td>"
-        . utf8_encode($registro[Nombre]) . "</td>";
-        echo "<td><a href='#?id=$registro[idUsuario]&op=agregar' class = add id = add>Agregar</a></td></tr><br>";
+        while ($registro = $consulta->fetch()) {
+            echo "<tr><td>$registro[idUsuario]</td><td>"
+            . utf8_encode($registro[Apellido]) . "</td><td>"
+            . utf8_encode($registro[Nombre]) . "</td>";
+            echo "<td><a href='#?id=$registro[idUsuario]' class = add id = add>Agregar</a></td></tr><br>";
+        }
+        echo "</tbody></table><form>";
+    } else {
+        //print_r($consulta->errorInfo());
     }
-    echo "</tbody></table><form>";
-} else {
-    //print_r($consulta->errorInfo());
-}
 //return $consulta;
-?>
+    ?>

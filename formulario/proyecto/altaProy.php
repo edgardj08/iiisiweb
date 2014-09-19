@@ -1,8 +1,8 @@
 <?php
-if ($_POST) {
+if (!$_POST) {
     echo "POST";
     include "bd/administrador/proyectos/abm.php";
-    $registro = crearProyecto($_POST[tituloProy], $_POST[codProy], $_POST[disciplinaProy]);
+    //$registro = crearProyecto($_POST[tituloProy], $_POST[codProy], $_POST[disciplinaProy]);
     if ($registro == 1) {
 
 
@@ -13,11 +13,6 @@ if ($_POST) {
         echo '<script language="javascript">';
         echo 'alert("Error al guardar el Proyecto...")';
         echo '</script>';
-    }
-}
-if ($_GET) {
-    if ($_GET[op] == "agregar") { //estoy eliminando
-        echo "$_GET[op]";
     }
 }
 ?>
@@ -32,6 +27,13 @@ if ($_GET) {
                     return false;
                 });
             });
+
+            function enviar() {
+                nombre = document.popup.texto1.value;
+                b = document.formulario.texto2.value;
+                document.formulario.suma.value = a + b;
+                document.formulario.submit();
+            }
         </script>
     </head>
     <body>
@@ -47,11 +49,12 @@ if ($_GET) {
             <div><br>
                 <h4>Asignar Director del Proyecto </h4>
             </div><br>
-            <table>
-                <tr><td>Director Asignado: </td><td><input type ="text" name="tituloProy" value="<?php echo "$_POST[idUsuario]" ?>" size ="30" maxlength="300"/></td>
-                    <td><a href="formulario/proyecto/PopUpDirectorProyecto.php" rel="pop-up">Buscar Director</a>
-                    <td><input type="button" id="btn" value="Buscar"></td>
-                    <td><input type=button onClick=window.open("formulario/proyecto/PopUpDirectorProyecto.php","demo","width=550,height=300,left=150,top=200,toolbar=0,status=0,"); value="Open child Window"></td></tr>
+            <table id="asignado">
+                <tr><td>Nombre Director: </td><td><input type ="text" name="nombreDir" value="" size ="30" maxlength="30"/></td></tr>
+                <tr><td>Apellido Director: </td><td><input type ="text" name="apellidoDir" value="" size ="30" maxlength="30"/></td></tr>
+                <td><a href="formulario/proyecto/PopUpDirectorProyecto.php" rel="pop-up">Buscar Director</a>
+                <td><input type="button" id="btn" value="Buscar"></td>
+
                 <br>
 
             </table><br>
